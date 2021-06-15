@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website preview</title>
+    <style>
+        .image {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Welcome to website preview!</h3>
+    <input class="site-url" placeholder="Type the site URL"></input>
+    <button class="new-search-button">Search</button>
+    <h3 class="title"></h3>
+    <p class="description"></p>
+    <img class="image">
+</body>
+<script>
+    const newSearchButton = document.querySelector('.new-search-button');
+    const articleDescription = document.querySelector('.description');
+
+    newSearchButton.addEventListener('click', async () => {
+        const siteUrl = document.querySelector('.site-url').value;
+
+        const response = await fetch('/preview', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({URL: siteUrl})
+        })
+        const dataJSON = await response.text();
+        const data = JSON.parse(dataJSON);
+
+        if (data.error === "incorrect URL") {
+            alert(data.error);
+            return;
+        }
+
+        document.querySelector('.title').innerText = data.title;
+        articleDescription.innerText = data.description;
+        document.querySelector('.image').src=data.image;
+    }, false);
+
+</script>
+</html>

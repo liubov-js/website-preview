@@ -1,0 +1,26 @@
+{
+  "name": "website-preview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liubov-23/website-preview.git"
+  },
+  "author": "Liubov Krivtsova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liubov-23/website-preview/issues"
+  },
+  "homepage": "https://github.com/liubov-23/website-preview#readme"
+}
