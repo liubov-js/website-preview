@@ -1,1 +1,3 @@
-# Website-preview
+# website-preview
+To start: 
+`npm start`
